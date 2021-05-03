@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/db/scripts/update_001.sql" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/db/scripts/update_002.sql" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/db/scripts/update_003.sql" dialect="GenericSQL" />
-  </component>
-</project>

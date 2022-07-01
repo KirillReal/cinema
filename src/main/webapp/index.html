@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/main.css"/>
+    <title>Cinema</title>
+</head>
+<body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<div class="container">
+    <div class="row cinema-container">
+        <div class="col s9">
+            <h5 class="center-align page-title">
+                Hall plan
+            </h5>
+            <div class="cinema">
+                <div class="display">
+                    <span>Screen</span>
+                </div>
+                <div class="seats js-seats">
+                </div>
+                <div class="center-align">
+                    <button type="button" class="btn btn-success refresh-button" onclick="getFilmSessionInfo();">Update</button> Last update: <span class="js-refresh-time"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col s3 info-seat">
+            <h5 class="center-align page-title">
+                information
+            </h5>
+            <div class="info-seat-content">
+                <div class="">
+                    <div class="film-session-info">
+                        <p class="film-session-row">Film: <br><span class="js-film-session-name"></span></p>
+                        <p class="film-session-row">Date: <br><span class="js-film-session-date"></span></p>
+                        <p class="film-session-row">Hall: <br><span class="js-film-session-hall"></span></p>
+                    </div>
+                    <div class="color-description">
+                        <p class="color-seat-row"><span class="color-seat free"></span> - free</p>
+                        <p class="color-seat-row"><span class="color-seat choose"></span> - choose</p>
+                        <p class="color-seat-row"><span class="color-seat busy"></span> - busy</p>
+                    </div>
+                </div>
+                <div class="order-description">
+                    <p>Choose seats <span class="js-order-seat-count">0</span></p>
+                    <p>To pay: <span class="js-order-sum">0</span></p>
+                </div>
+            </div>
+            <div class="center-align">
+                <button type="button" class="btn btn-success js-open-modal" data-modal="1">Pay</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-custom" data-modal="1">
+        <!--   Svg иконка для закрытия окна  -->
+        <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+        <div class="js-modal-content">
+            <p class="modal__title">Your order:</p>
+            <table class="modal-table">
+                <thead>
+                <tr>
+                    <th>Ticket</th>
+                    <th class="right-align">Price</th>
+                </tr>
+                </thead>
+                <tbody class="js-order-info">
+                </tbody>
+            </table>
+            <p class="modal__title">Your data:</p>
+            <div class="row customer-info">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="name" type="text" class="validate js-user-name">
+                    <label for="name">Full name</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="phone" type="tel" class="validate js-user-phone">
+                    <label for="phone">Phone</label>
+                </div>
+                <div class="input-field col s12">
+                    <p class="error js-error"></p>
+                </div>
+                <div class="input-field col s12 right-align">
+                    <button type="button" class="btn btn-success js-order-pay">Pay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-custom" data-modal="2">
+        <!--   Svg иконка для закрытия окна  -->
+        <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+        <p class="">No one ticket selected for purchase!</p>
+    </div>
+    <div class="overlay js-overlay-modal"></div>
+</div>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/film.session.info.js"></script>
+<script type="text/javascript" src="js/order.pay.js"></script>
+</body>
+</html>
